@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 import ArchiveSidebar from '../components/archive/ArchiveSidebar';
 import BreadCrumb from '../components/BreadCrumb';
 import Pagination from '../components/archive/Pagination';

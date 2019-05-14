@@ -7,7 +7,7 @@ import OverlayMenu from './OverlayMenu';
 import Hamburger from './Hamburger';
 import Footer from './Footer';
 
-import './Layout.css';
+import './layout.css';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 
 const Primary = styled.main`
