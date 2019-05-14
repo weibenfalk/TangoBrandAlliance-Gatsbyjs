@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     <>
       <Hamburger handleOverlayMenu={handleOverlayMenu} />
       <OverlayMenu menuOpen={menuOpen} callback={handleOverlayMenu} />
-      <Header />
+      {/* <Header /> */}
       <Primary id="primary" className="content-area">
         <main id="main" className="site-main" role="main">
           {children}
