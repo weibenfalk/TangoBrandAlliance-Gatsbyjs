@@ -1,42 +1,61 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import tangoLogo from '../images/tango_logo.svg';
+import Navigation from './Navigation';
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+import { HeaderWrapper } from './styles/HeaderStyles';
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+const Header = () => {
+  const {
+    site,
+    menu: {
+      edges: [{ node: menu }],
+    },
+  } = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      menu: allWordpressWpApiMenusMenusItems(
+        filter: { wordpress_id: { eq: 5 } }
+      ) {
+        totalCount
+        edges {
+          node {
+            items {
+              title
+              url
+              wordpress_children {
+                title
+                url
+              }
+            }
+            name
+          }
+        }
+      }
+    }
+  `);
 
-export default Header
+  return (
+    <HeaderWrapper>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <Link to="/">
+              <img src={tangoLogo} alt={site.siteMetadata.title} />
+            </Link>
+          </div>
+          <div className="col-md-8 menu">
+            <Navigation menu={menu} />
+          </div>
+        </div>
+      </div>
+    </HeaderWrapper>
+  );
+};
+
+export default Header;
