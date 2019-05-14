@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 
 import { HeaderWrapper } from './styles/HeaderStyles';
 
-const TangoHeader = () => {
+const Header = () => {
   const {
     site,
     menu: {
@@ -58,4 +58,4 @@ const TangoHeader = () => {
   );
 };
 
-export default TangoHeader;
+export default Header;

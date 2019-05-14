@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import TangoHeader from './TangoHeader';
+import Header from './Header';
 import OverlayMenu from './OverlayMenu';
 import Hamburger from './Hamburger';
 import Footer from './Footer';
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     <>
       <Hamburger handleOverlayMenu={handleOverlayMenu} />
       <OverlayMenu menuOpen={menuOpen} callback={handleOverlayMenu} />
-      <TangoHeader />
+      <Header />
       <Primary id="primary" className="content-area">
         <main id="main" className="site-main" role="main">
           {children}
