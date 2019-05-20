@@ -26,7 +26,7 @@ const PostSidebar = ({ date, author, categories }) => (
       {categories.map((cat, i) =>
         cat.slug !== 'alla-trendspaningar' ? (
           <li key={i}>
-            <Link to={`/trendspaningar/${cat.slug}/`}>
+            <Link to={`/trends/${cat.slug}/`}>
               <span dangerouslySetInnerHTML={{ __html: cat.name }} />
             </Link>
           </li>
