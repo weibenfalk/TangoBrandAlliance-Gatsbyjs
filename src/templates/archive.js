@@ -30,8 +30,8 @@ const ArchivePage = ({
     <PageHero img={file.childImageSharp.fluid} />
     <BreadCrumb
       parent={{
-        link: '/trendspaningar/alla-trendspaningar',
-        title: 'trendspaningar',
+        link: '/trends/alla-trendspaningar',
+        title: 'trends',
       }}
     />
     <div className="container">
@@ -41,7 +41,7 @@ const ArchivePage = ({
           <h1 dangerouslySetInnerHTML={{ __html: catName }} />
           {allWordpressPost.edges.map(post => (
             <article key={post.node.id} className="entry-content">
-              <Link to={`/trendspaningar/${post.node.slug}/`}>
+              <Link to={`/trends/${post.node.slug}/`}>
                 <StyledH2
                   dangerouslySetInnerHTML={{ __html: post.node.title }}
                 />
