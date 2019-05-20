@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
         createPage, // The Gatsby `createPage` function
         items: filteredPosts, // An array of objects
         itemsPerPage: 10,
-        pathPrefix: `/trendspaningar/${catEdge.node.slug}`, // Creates pages like `/blog`, `/blog/2`, etc
+        pathPrefix: `/trends/${catEdge.node.slug}`, // Creates pages like `/blog`, `/blog/2`, etc
         component: slash(archiveTemplate),
         context: {
           catId: catEdge.node.id,
@@ -105,7 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allWordpressPost.edges.forEach(edge => {
     if (edge.node.status === 'publish') {
       createPage({
-        path: `/trendspaningar${edge.node.link}/`,
+        path: `/trends${edge.node.link}/`,
         component: slash(postTemplate),
         context: {
           id: edge.node.id,
